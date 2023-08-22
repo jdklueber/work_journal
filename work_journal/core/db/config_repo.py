@@ -1,7 +1,7 @@
 from . import Config
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from . import Config
+from . import Base, Config
 
 
 class ConfigRepo:
@@ -20,6 +20,7 @@ class ConfigRepo:
     def __init__(self, engine) -> None:
         self.engine = engine
         self.config = dict()
+        Base.metadata.create_all(engine)
         for config in self.retrieve_all():
             self.config[config.key] = config.value
 
