@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from . import Journal
+from . import Base, Journal
 
 
 class JournalRepo:
@@ -11,6 +11,7 @@ class JournalRepo:
 
     def __init__(self, engine) -> None:
         self.engine = engine
+        Base.metadata.create_all(engine)
 
     def create_journal_entry(self, entry: str) -> Journal:
         """
