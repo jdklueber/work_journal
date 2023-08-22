@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "work-journal"
+version = "0.1.0"
+description = ""
+authors = ["Jason Klueber <jason.klueber@cotiviti.com>"]
+readme = "README.md"
+packages = [{include = "work_journal"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+alembic = "^1.11.3"
+pytest = "^7.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
